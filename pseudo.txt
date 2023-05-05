@@ -1,0 +1,16 @@
+The first thing I will do is create a board based off of a grid on html/css. 
+I will assign a class and id to each div for styling purposes. 
+The goal is to have each div flash the colour as it relates to the styling for that button. 
+I will declare create buttons for on/off and reset. 
+I will declare my global variables for the computer and player moves. 
+I will create an event listener for the click function for each of the coloured buttons that corresponds to player choice.
+I will create a seperate event listener for the reset button.
+ I will use an initiate function for the on/off button. 
+I will use the box in the middle (currently labeled Simon) as a message box to display "game over" and high score. 
+I will need to use an array with indexes for each div element. 
+I will call the array using math.random or something similar to represent the pattern chosen by the computer. 
+I will need to match the pattern provided by the computer to the user using a for loop? To check if the input is true or false. 
+If the input is true then the game will continue and the computer will keep picking random patterns until the players ultimately fails. 
+Once the player does fail, the text box will output their score. 
+I will find a means to assign a sound to each div as well as the colour. I want a flash of light and the corresponding sound. 
+
