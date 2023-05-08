@@ -35,6 +35,8 @@ body {
   background: black;
   }
 
+
+  /* https://linuxhint.com/change-button-color-on-click-css/#:~:text=To%20change%20the%20button%20color,the%20mouse%20clicks%20on%20it. */
   #yellow {
     background: goldenrod;
     border-top-left-radius: 100%;
@@ -73,6 +75,20 @@ body {
   
 
 
+body.start {
+  color: red;
+  background-color: blue 
+}
 
+p {
+  font-family: 'Montserrat', sans-serif; 
+  color: mediumseagreen;
+  font-size: 20px;
+}
 
-
+a {
+  margin: 0;
+  color: darkorange;
+  position: relative;
+  text-decoration: none;
+}

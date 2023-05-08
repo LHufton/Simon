@@ -5,19 +5,16 @@ let botSequence = []
 let userSequence = []
 let level = 1
 
-const startButton = document.getElementById('Start')
-startButton.addEventListener('click', () => {
-  cells.forEach((cell) => {
-    cell.innerHTML = ''
-  })},
+const messageEl = document.querySelector('h1')
 
-function startGame() {
+const startGame = () => {
   addEventListener('click', startGame)
   botSequence = []
   userSequence = []
   level = 1
   nextRound()
-},
+}
+
 // https://www.w3schools.com/js/js_random.asp
 function getRandomColor() {
   const index = Math.floor(Math.random() * colors.length)
