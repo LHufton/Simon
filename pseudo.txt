@@ -1,4 +1,4 @@
-The first thing I will do is create a board based off of a grid on html/css. 
+The first thing I will do is create a board based off of a grid on css. 
 I will assign a class and id to each div for styling purposes. 
 The goal is to have each div flash the colour as it relates to the styling for that button. 
 I will declare create buttons for on/off and reset. 
