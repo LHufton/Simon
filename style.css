@@ -33,7 +33,45 @@ body {
   justify-content: center;
   align-items: center;
   background: black;
-}
+  }
+
+  #yellow {
+    background: goldenrod;
+    border-top-left-radius: 100%;
+  }
+  /* https://linuxhint.com/change-button-color-on-click-css/#:~:text=To%20change%20the%20button%20color,the%20mouse%20clicks%20on%20it. */
+  #yellow:active {
+    background: yellow;
+  }
+  
+  #red {
+    background: darkred;
+    border-bottom-right-radius: 100%;
+  }
+  
+  #red:active {
+    background: red;
+  
+  }
+  
+  #green {
+    background: darkgreen;
+    border-bottom-left-radius: 100%;
+  }
+  
+  #green:active {
+    background: green;
+  }
+  
+  #blue {
+    background: darkblue;
+    border-top-right-radius: 100%;
+  }
+  
+  #blue:active {
+    background: blue;
+  }
+
 
 
 
