@@ -22,6 +22,7 @@ body {
 #middle {
   height: 200px;
   aspect-ratio: 1/1;
+  font-size: 30px;
   border-radius: 50%;
   position: absolute;
   flex-direction: column;

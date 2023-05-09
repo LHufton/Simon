@@ -5,18 +5,36 @@ let botSequence = []
 let userSequence = []
 let level = 1
 
-const messageEl = document.querySelector('h1')
+document.getElementById('middle').innerHTML = 'Click to Start'
 
-const startGame = () => {
+function startGame() {
   addEventListener('click', startGame)
   botSequence = []
   userSequence = []
   level = 1
-  nextRound()
+  nextLevel()
 }
 
-// https://www.w3schools.com/js/js_random.asp
-function getRandomColor() {
+const nextLevel = () => {
+  const newColor = getRandomColor()
+  botSequence.push(newColor)
+  userSequence = []
+  playSequence()
+}
+
+const playSequence = () => {
+  for (i = 0; i < colors.length; i ++)
+}
+
+const getRandomColor = () => {
   const index = Math.floor(Math.random() * colors.length)
   return colors[index]
+}
+
+const checkSequence = () => {
+  if (userSequence === botSequence) {
+    return nextLevel()
+  } else {
+    document.getElementById('middle').innerHTML = 'Game Over'
+  }
 }
