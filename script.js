@@ -65,7 +65,7 @@ function handleClick(evt) {
 }
 
 if (!checkSequence()) {
-  middle.innerHTML = '<h1>Game Over</h1>'
+  start.innerHTML = '<h1>Game Over</h1>'
   setTimeout(() => {
     sequence = []
     startGame()
