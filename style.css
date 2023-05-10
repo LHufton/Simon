@@ -65,7 +65,7 @@ body {
   }
   
   #blue {
-    background: darkblue;
+    background: rgba(2, 2, 130, 0.823);
     border-top-right-radius: 100%;
   }
   
@@ -93,3 +93,4 @@ a {
   position: relative;
   text-decoration: none;
 }
+
