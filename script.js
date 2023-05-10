@@ -15,7 +15,6 @@ const startGame = () => {
   level = 1
   nextLevel()
 }
-
 const flashColor = (color) => {
   const section = document.getElementById(color)
   section.classList.add('active')
@@ -48,15 +47,3 @@ const getRandomColor = () => {
   const index = Math.floor(Math.random() * colors.length)
   return colors[index]
 }
-
-const checkSequence = () => {
-  for (let i = 0; i < userSequence.length; i++) {
-    if (userSequence[i] !== botSequence[i]) {
-      return false;
-    }
-  }
-    return nextLevel()
-  } else {
-    document.getElementById('middle').innerHTML = 'Game Over'
-  }
-
