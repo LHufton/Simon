@@ -6,8 +6,9 @@ let userSequence = []
 let level = 1
 
 document.getElementById('middle').innerHTML = 'Click to Start'
+middle.addEventListener('click', startGame)
 
-function startGame() {
+const startGame = () => {
   addEventListener('click', startGame)
   botSequence = []
   userSequence = []
@@ -15,15 +16,32 @@ function startGame() {
   nextLevel()
 }
 
-const nextLevel = () => {
+const flashColor = (color) => {
+  const section = document.getElementById(color)
+  section.classList.add('active')
+  setTimeout(() => {
+    section.classList.remove('active')
+    section.style.boxShadow = ''
+  }, 300)
+}
+
+const playSequence = (botSequence) => {
+  let index = 0
+  const interval = setInterval(() => {
+    flashColor(botSequence[index])
+    index++
+    if (index >= botSequence.length) {
+      clearInterval(interval)
+    }
+  }, 600)
+}
+
+function nextLevel() {
   const newColor = getRandomColor()
   botSequence.push(newColor)
   userSequence = []
-  playSequence()
-}
-
-const playSequence = () => {
-  for (i = 0; i < colors.length; i ++)
+  playSequence(botSequence)
+  middle.innerHTML = `<h1>Level ${level}</h1>`
 }
 
 const getRandomColor = () => {
@@ -32,9 +50,13 @@ const getRandomColor = () => {
 }
 
 const checkSequence = () => {
-  if (userSequence === botSequence) {
+  for (let i = 0; i < userSequence.length; i++) {
+    if (userSequence[i] !== botSequence[i]) {
+      return false;
+    }
+  }
     return nextLevel()
   } else {
     document.getElementById('middle').innerHTML = 'Game Over'
   }
-}
+
