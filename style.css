@@ -19,7 +19,7 @@ body {
   margin: 0 auto;
 }
 
-#middle {
+#middle, h2 {
   height: 200px;
   aspect-ratio: 1/1;
   font-size: 30px;
@@ -46,7 +46,9 @@ body {
   #yellow:active {
     background: yellow;
   }
-
+  #yellow.active {
+    background: yellow;
+  }
   #red {
     background: darkred;
     border-bottom-right-radius: 100%;
@@ -55,12 +57,18 @@ body {
     background: red;
   
   }
+  #red.active {
+    background: red;
   
+  }
   #green {
     background: darkgreen;
     border-bottom-left-radius: 100%;
   }
   #green:active {
+    background: green;
+  }
+  #green.active {
     background: green;
   }
   
@@ -73,7 +81,9 @@ body {
     background: blue;
   }
   
-  
+  #blue.active {
+    background: blue;
+  }
 
 
 body.start {

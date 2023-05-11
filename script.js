@@ -1,4 +1,3 @@
-console.log('js connected')
 const colors = ['yellow', 'blue', 'green', 'red']
 const sections = document.querySelectorAll('.section')
 const start = document.getElementById('start')
@@ -21,31 +20,46 @@ const startGame = () => {
   nextLevel()
 }
 start.addEventListener('click', startGame)
+
 const flashColor = (color) => {
-  const section = document.getElementById(color)
-  section.classList.add('active')
-  setTimeout(() => {
-    section.classList.remove('active')
-  }, 300)
-}
-const interval = ' '
-const playSequence = (botSequence) => {
-  let index = 0
-  const interval = setInterval(() => {
-    flashColor(botSequence[index])
-    index++
-    if (index >= botSequence.length) {
-      clearInterval(interval)
+  let activeSection = null
+  sections.forEach((section) => {
+    if (section.id === color) {
+      activeSection = section
     }
-  }, 600)
+  })
+  console.log(activeSection)
+  activeSection.classList.add('active')
+  setTimeout(() => {
+    activeSection.classList.remove('active')
+  }, 1000)
 }
 
-function nextLevel() {
+const playSequence = () => {
+  botSequence.forEach((color) => {
+    flashColor(color)
+  })
+  // const interval = setInterval(() => {
+  //   if (index >= botSequence.length) {
+  //     clearInterval(interval)
+  //   }
+  // }, 500)
+
+  // const interval = setInterval(() => {
+  //   index++
+  //   if (index >= botSequence.length) {
+  //     clearInterval(interval)
+  //   }
+  // }, 600)
+}
+
+const nextLevel = () => {
   const newColor = getRandomColor()
   botSequence.push(newColor)
   userSequence = []
-  playSequence(botSequence)
-  middle.innerHTML = `<h1>Level ${level}</h1>`
+  playSequence()
+  start.innerHTML = `<h2>Level ${level}</h2>`
+  console.log(botSequence)
 }
 
 const checkSequence = () => {
@@ -61,14 +75,17 @@ console.log(checkSequence())
 function handleClick(evt) {
   const clickedColor = evt.target.id
   userSequence.push(clickedColor)
-  lightUp(clickedColor)
+  if (botSequence.length === userSequence.length) {
+    checkSequence()
+  }
 }
-
+// at the end of each turn, reset user sequence.
 if (!checkSequence()) {
-  start.innerHTML = '<h1>Game Over</h1>'
+  start.innerHTML = '<h2>Game Over</h2>'
   setTimeout(() => {
     sequence = []
     startGame()
   }, 2000)
-  return
 }
+// Create a userSequence function
+//
