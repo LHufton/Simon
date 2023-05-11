@@ -2,7 +2,7 @@
 
 ## Date:
 
-05/04/2023
+05/12/2023
 
 ### Author:
 
@@ -33,3 +33,5 @@ The game is over if you fail to copy the pattern exactly.
 
 Credits:
 freesimon.org (image)
+https://flexiple.com/javascript/javascript-array-equality/
+https://javascript.plainenglish.io/javascript-slow-down-for-loop-9d1caaeeeeed
