@@ -13,79 +13,73 @@ const getRandomColor = () => {
 }
 
 const startGame = () => {
-  addEventListener('click', startGame)
   botSequence = []
   userSequence = []
   level = 1
   nextLevel()
 }
 start.addEventListener('click', startGame)
-
-const flashColor = (color) => {
+const sleep = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time))
+}
+const flashColor = async (color) => {
   let activeSection = null
-  sections.forEach((section) => {
-    if (section.id === color) {
-      activeSection = section
+  // sections.forEach((section) => {
+  for (let i = 0; i < sections.length; i++) {
+    if (sections[i].id === color) {
+      activeSection = sections[i]
+      activeSection.classList.add('active')
+      await sleep(600)
+      activeSection.classList.remove('active')
     }
-  })
-  console.log(activeSection)
-  activeSection.classList.add('active')
-  setTimeout(() => {
-    activeSection.classList.remove('active')
-  }, 1000)
+  }
 }
 
-const playSequence = () => {
-  botSequence.forEach((color) => {
-    flashColor(color)
-  })
-  // const interval = setInterval(() => {
-  //   if (index >= botSequence.length) {
-  //     clearInterval(interval)
-  //   }
-  // }, 500)
-
-  // const interval = setInterval(() => {
-  //   index++
-  //   if (index >= botSequence.length) {
-  //     clearInterval(interval)
-  //   }
-  // }, 600)
+const playSequence = async () => {
+  for (let i = 0; i < botSequence.length; i++) {
+    flashColor(botSequence[i])
+    await sleep(1000)
+  }
 }
 
-const nextLevel = () => {
+// New function to check user input
+// Create a userSequence function
+
+const nextLevel = async () => {
+  await sleep(1000)
   const newColor = getRandomColor()
   botSequence.push(newColor)
+  console.log(botSequence)
   userSequence = []
   playSequence()
   start.innerHTML = `<h2>Level ${level}</h2>`
-  console.log(botSequence)
 }
 
 const checkSequence = () => {
-  for (let i = 0; i < userSequence.length; i++) {
-    if (userSequence[i] !== botSequence[i]) {
-      return false
+  userSequence.forEach((ele, index) => {
+    if (!(ele === botSequence[index])) {
+      start.innerHTML = '<h2>Game Over</h2>'
     }
+  })
+  if (userSequence.every((color, index) => color === botSequence[index])) {
+    level++
+    nextLevel()
   }
-  return true
 }
-console.log(checkSequence())
-
-function handleClick(evt) {
-  const clickedColor = evt.target.id
+const handleClick = (event) => {
+  console.log('userClicked')
+  const clickedColor = event.target.id
   userSequence.push(clickedColor)
+  console.log(userSequence)
+  console.log(botSequence)
   if (botSequence.length === userSequence.length) {
+    console.log('checkingSequence')
     checkSequence()
+  } else if (userSequence.length > botSequence.length) {
+    start.innerHTML = '<h2>Game Over</h2>'
   }
 }
-// at the end of each turn, reset user sequence.
-if (!checkSequence()) {
-  start.innerHTML = '<h2>Game Over</h2>'
-  setTimeout(() => {
-    sequence = []
-    startGame()
-  }, 2000)
-}
-// Create a userSequence function
-//
+sections.forEach((section) => {
+  console.log(section)
+  section.addEventListener('click', handleClick)
+})
