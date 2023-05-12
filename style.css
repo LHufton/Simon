@@ -16,7 +16,7 @@ body {
 
 #board {
   background: black;
-  height: 90vh;
+  height: 85vh;
   aspect-ratio: 1/1;
   position: relative;
   border-radius: 50%;
@@ -49,9 +49,11 @@ body {
   }
 
 h2 {
-  height: 100px;
+  height: 11vh;
   font-size: 30px;
   border-radius: 80px;
+  text-align: center;
+  justify-content: center;
 
 }
   /* https://linuxhint.com/change-button-color-on-click-css/#:~:text=To%20change%20the%20button%20color,the%20mouse%20clicks%20on%20it. */
@@ -132,6 +134,6 @@ h3 {
   margin: 0;
   text-align: center;
   font-family: 'Orbitron', sans-serif;
-  padding: 150px
+ 
 
 }
