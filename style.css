@@ -104,11 +104,6 @@ body.start {
   background-image: url("images/red-curtain-backdrop-2-pc-~3_2329.jpeg");
 }
 
-p {
-  font-family: 'Montserrat', sans-serif; 
-  color: mediumseagreen;
-  font-size: 20px;
-}
 
 a {
   margin: 0;
@@ -121,3 +116,10 @@ a {
   background-color: blue;
 }
 
+h3 {
+  color: goldenrod;
+  font-size: 65px;
+  margin: 0;
+  text-align: center
+
+}
