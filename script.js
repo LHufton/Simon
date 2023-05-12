@@ -18,12 +18,12 @@ const startGame = () => {
   level = 1
   nextLevel()
 }
-
+// completes an event
 start.addEventListener('click', startGame)
 const sleep = (time) => {
   return new Promise((resolve) => setTimeout(resolve, time))
 }
-
+// sets the time between flashing colours
 const flashColor = async (color) => {
   let activeSection = null
   for (let i = 0; i < sections.length; i++) {
@@ -35,16 +35,13 @@ const flashColor = async (color) => {
     }
   }
 }
-
+// runs the computer choice sequence checks against random colour array
 const playSequence = async () => {
   for (let i = 0; i < botSequence.length; i++) {
     flashColor(botSequence[i])
     await sleep(1000)
   }
 }
-
-// New function to check user input
-// Create a userSequence function
 
 const nextLevel = async () => {
   await sleep(1000)
@@ -54,11 +51,11 @@ const nextLevel = async () => {
   playSequence()
   start.innerHTML = `<h2>Level ${level}</h2>`
 }
-
+// compares user sequence to computer sequence
 const checkSequence = () => {
   userSequence.forEach((ele, index) => {
     if (!(ele === botSequence[index])) {
-      start.innerHTML = '<h2>Game Over</h2>'
+      start.innerHTML = '<h2>Game Over </h2>'
     }
   })
   if (userSequence.every((color, index) => color === botSequence[index])) {
@@ -66,7 +63,7 @@ const checkSequence = () => {
     nextLevel()
   }
 }
-
+// determines next level or game over
 const handleClick = (event) => {
   const clickedColor = event.target.id
   userSequence.push(clickedColor)
@@ -76,7 +73,7 @@ const handleClick = (event) => {
     start.innerHTML = '<h2>Game Over</h2>'
   }
 }
-
+// event listener for click input
 sections.forEach((section) => {
   section.addEventListener('click', handleClick)
 })

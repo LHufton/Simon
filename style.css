@@ -101,8 +101,7 @@ h2 {
 
 
 body.start {
-  color: red;
-  background-color: blue 
+  background-image: url("images/red-curtain-backdrop-2-pc-~3_2329.jpeg");
 }
 
 p {
@@ -121,3 +120,4 @@ a {
 .start {
   background-color: blue;
 }
+
