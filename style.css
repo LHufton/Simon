@@ -107,9 +107,16 @@ body.start {
 
 a {
   margin: 0;
+  font-size: 60px;
   color: darkorange;
   position: relative;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  height: 500px;
+  font-family: 'Orbitron', sans-serif;
+
 }
 
 .start {
@@ -120,6 +127,8 @@ h3 {
   color: goldenrod;
   font-size: 65px;
   margin: 0;
-  text-align: center
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  padding: 150px
 
 }
