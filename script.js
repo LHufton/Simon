@@ -43,12 +43,14 @@ const playSequence = async () => {
     await sleep(1000)
   }
 }
+
 const updateHighScore = () => {
   if (level > highScore) {
-    highScore = level
+    highScore = level - 1
     document.getElementById('high-score').innerText = `High Score: ${highScore}`
   }
 }
+
 const nextLevel = async () => {
   await sleep(1000)
   const newColor = getRandomColor()
@@ -67,16 +69,19 @@ const nextLevel = async () => {
 const checkSequence = () => {
   userSequence.forEach((ele, index) => {
     if (!(ele === botSequence[index])) {
-      start.innerHTML = '<h2>Game Over </h2>'
+      start.innerHTML = '<h2>Game Over</h2>'
       if (level - 1 > highScore) {
-        highScore = level - 1 // Update the high score
-        updateHighScore() // Call the function to update the high score on the page
+        highScore = level - 1
+        updateHighScore()
       }
     }
   })
-  if (userSequence.every((color, index) => color === botSequence[index])) {
-    level++
-    nextLevel()
+
+  if (userSequence.length === botSequence.length) {
+    if (userSequence.every((color, index) => color === botSequence[index])) {
+      level++
+      nextLevel()
+    }
   }
 }
 

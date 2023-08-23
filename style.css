@@ -101,37 +101,38 @@ h2 {
 }
 
 body.start {
-  background-image: url("https://i.fbcd.co/products/resized/resized-750-500/5235675a4b399790221346f18c7dc4ab88539d39c4fda88ab126f65c56a77368.webp");
+  background-image: url("images/Curtain.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-
+  /* Set the body to cover the entire viewport */
+  max-width: 100%;
+  margin: 0; /* Remove default margin to prevent unnecessary spacing */
+  padding: 0; /* Remove default padding as well */
 }
 
+
+
 a {
-  margin: 0;
-  font-size: 80px;
-  color: goldenrod;
+  margin:1.75em -.5em -.5em -.5em;
+  font-size: 150px;
+  color: gold;
   position: relative;
   text-decoration: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 500px;
-  font-family: 'Orbitron', sans-serif;
+  align-items: column-reverse;
+  height: 50px;
+  font-family: 'Verdana', sans-serif;
 }
 
-/* .start {
-  background-color: blue;
-} */
-
-h3 {
-  color: goldenrod;
-  font-size: 65px;
-  margin: 0;
+p {color: gold;
+  font-size: 45px;
+  margin: 200px 40px 20px 20px;
   text-align: center;
-  font-family: 'Orbitron', sans-serif;
+  justify-content: center;
+  font-family: 'Verdana', sans-serif;
 }
 
 .background-container {
@@ -153,11 +154,12 @@ h3 {
 #high-score {
   text-align: center;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 48%;
+  display: flex-start;
+  transform: translateX(-48%);
   bottom: 420px; /* Adjust the vertical position as needed */
   font-size: 20px;
-  color: rgb(40, 181, 15);
+  color: limegreen;
   font-family: 'Montserrat', sans-serif;
   z-index: 1;
   font-weight: bold;
