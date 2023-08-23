@@ -4,6 +4,7 @@ const start = document.getElementById('start')
 let botSequence = []
 let userSequence = []
 let level = 1
+let highScore = 0
 
 start.innerHTML = 'Click to Start'
 
@@ -18,12 +19,12 @@ const startGame = () => {
   level = 1
   nextLevel()
 }
-// completes an event
+
 start.addEventListener('click', startGame)
 const sleep = (time) => {
   return new Promise((resolve) => setTimeout(resolve, time))
 }
-// sets the time between flashing colours
+
 const flashColor = async (color) => {
   let activeSection = null
   for (let i = 0; i < sections.length; i++) {
@@ -35,14 +36,19 @@ const flashColor = async (color) => {
     }
   }
 }
-// runs the computer choice sequence checks against random colour array
+
 const playSequence = async () => {
   for (let i = 0; i < botSequence.length; i++) {
     flashColor(botSequence[i])
     await sleep(1000)
   }
 }
-
+const updateHighScore = () => {
+  if (level > highScore) {
+    highScore = level
+    document.getElementById('high-score').innerText = `High Score: ${highScore}`
+  }
+}
 const nextLevel = async () => {
   await sleep(1000)
   const newColor = getRandomColor()
@@ -50,12 +56,22 @@ const nextLevel = async () => {
   userSequence = []
   playSequence()
   start.innerHTML = `<h2>Level ${level}</h2>`
+
+  // Update the high score
+  if (level - 1 > highScore) {
+    highScore = level - 1
+    updateHighScore()
+  }
 }
-// compares user sequence to computer sequence
+
 const checkSequence = () => {
   userSequence.forEach((ele, index) => {
     if (!(ele === botSequence[index])) {
       start.innerHTML = '<h2>Game Over </h2>'
+      if (level - 1 > highScore) {
+        highScore = level - 1 // Update the high score
+        updateHighScore() // Call the function to update the high score on the page
+      }
     }
   })
   if (userSequence.every((color, index) => color === botSequence[index])) {
@@ -63,7 +79,7 @@ const checkSequence = () => {
     nextLevel()
   }
 }
-// determines next level or game over
+
 const handleClick = (event) => {
   const clickedColor = event.target.id
   userSequence.push(clickedColor)
@@ -73,7 +89,7 @@ const handleClick = (event) => {
     start.innerHTML = '<h2>Game Over</h2>'
   }
 }
-// event listener for click input
+
 sections.forEach((section) => {
   section.addEventListener('click', handleClick)
 })
