@@ -154,7 +154,8 @@ p {color: gold;
 #high-score {
   text-align: center;
   position: absolute;
-  left: 48%;
+  padding: -40px;
+  margin: 0 -90px 10px 20px;
   display: flex-start;
   transform: translateX(-48%);
   bottom: 420px; /* Adjust the vertical position as needed */
